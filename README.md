@@ -83,12 +83,12 @@ npm run preview
 ## 4. Опубликованный сайт и репозиторий
 
 Рабочий адрес сайта в Cloudflare:
-[own-portfolio.hahh20200.workers.dev](https://own-portfolio.hahh20200.workers.dev).
+[portfolio.saper-avi.workers.dev](https://portfolio.saper-avi.workers.dev).
 
 Репозиторий для самостоятельной работы и публикации через Cloudflare:
 [saper-avi/Own-portfolio](https://github.com/saper-avi/Own-portfolio).
 
-Worker — `own-portfolio`. Публикация обновляется из ветки `main`.
+Worker — `portfolio`. Публикация обновляется из ветки `main`.
 
 Первоначальная копия в Sites:
 https://alikhan-saper-studio.saper-avii.chatgpt.site
@@ -118,7 +118,7 @@ npm run deploy
 `npm run deploy` сначала выполняет сборку, затем публикует готовый сайт.
 Wrangler откроет вход в Cloudflare и при публикации покажет адрес `workers.dev`.
 Используй точный адрес из результата деплоя. `tools/serve.mjs` в облаке запускать
-не надо: Cloudflare раздаёт готовые файлы. Имя Worker — `own-portfolio`,
+не надо: Cloudflare раздаёт готовые файлы. Имя Worker — `portfolio`,
 как в `wrangler.jsonc`.
 
 ### Автоматические обновления через GitHub
@@ -126,12 +126,12 @@ Wrangler откроет вход в Cloudflare и при публикации п
 1. Храни исходники в корне репозитория `saper-avi/Own-portfolio`:
    `index.html`, `assets/`, `tools/`, `package.json`, `package-lock.json`,
    `wrangler.jsonc`, `.gitignore` и `README.md`.
-2. В Cloudflare открой Worker `own-portfolio` → **Settings → Build**.
+2. В Cloudflare открой Worker `portfolio` → **Settings → Builds**.
 3. Для подключённого репозитория `saper-avi/Own-portfolio` используй настройки:
 
 | Настройка | Значение |
 | --- | --- |
-| Worker name | `own-portfolio` |
+| Worker name | `portfolio` |
 | Production branch | `main` |
 | Root directory | Оставить пустым: проект находится в корне репозитория |
 | Build command | Оставить пустым: сборка входит в deploy |
@@ -139,7 +139,7 @@ Wrangler откроет вход в Cloudflare и при публикации п
 | Assets directory | `./dist` — уже указан в `wrangler.jsonc` |
 
 Правки в VS Code → commit → push в `main` → автоматическое обновление сайта.
-Имя Worker в Cloudflare и `wrangler.jsonc` — точно `own-portfolio`.
+Имя Worker в Cloudflare и `wrangler.jsonc` — точно `portfolio`.
 
 Wrangler 4.152.0 закреплён в `package.json` и `package-lock.json`.
 Сохрани оба файла в репозитории; `npm ci` установит зависимости по lockfile.
