@@ -1,6 +1,8 @@
 {
-  "name": "alikhan-portfolio",
+  "name": "own-portfolio",
   "compatibility_date": "2026-10-22",
+  "workers_dev": true,
+  "preview_urls": true,
   "assets": {
     "directory": "./dist"
   }
