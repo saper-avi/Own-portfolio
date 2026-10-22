@@ -107,10 +107,10 @@ https://alikhan-saper-studio.saper-avii.chatgpt.site
 ```sh
 npm ci
 npx wrangler login
-npm run build
-npx wrangler deploy
+npm run deploy
 ```
 
+`npm run deploy` сначала выполняет сборку, затем публикует готовый сайт.
 Wrangler откроет вход в Cloudflare и при публикации покажет адрес `workers.dev`.
 Используй точный адрес из результата деплоя. `tools/serve.mjs` в облаке запускать
 не надо: Cloudflare раздаёт готовые файлы. Имя Worker — `alikhan-portfolio`,
@@ -129,8 +129,8 @@ Wrangler откроет вход в Cloudflare и при публикации п
 | Worker name | `alikhan-portfolio` |
 | Production branch | `main` |
 | Root directory | Оставить пустым: проект находится в корне репозитория |
-| Build command | `npm run build` |
-| Deploy command | `npx wrangler deploy` |
+| Build command | Оставить пустым: сборка входит в deploy |
+| Deploy command | `npm run deploy` |
 | Assets directory | `./dist` — уже указан в `wrangler.jsonc` |
 
 После подключения: правки в VS Code → commit → push в `main` → автоматическое
@@ -139,7 +139,10 @@ Wrangler откроет вход в Cloudflare и при публикации п
 
 Wrangler 4.152.0 закреплён в `package.json` и `package-lock.json`.
 Сохрани оба файла в репозитории; `npm ci` установит зависимости по lockfile.
-Папка `dist/` создаётся заново при сборке и уже добавлена в `.gitignore`.
+Папка `dist/` не хранится в Git: она добавлена в `.gitignore` и создаётся при
+сборке. Если Cloudflare сразу запускает `npx wrangler deploy` после установки
+зависимостей, папки ещё нет и публикация завершается ошибкой. Команда
+`npm run deploy` сначала создаёт `dist/`, затем запускает Wrangler.
 
 Официальные инструкции:
 
@@ -158,7 +161,8 @@ Cloudflare создаст DNS-запись и сертификат HTTPS.
 
 После первого успешного деплоя или подключения собственного домена добавь
 `og:url` в `<head>` файла `index.html` с точным адресом опубликованного сайта.
-Устаревший адрес Sites из этого тега удалён. Затем снова выполни сборку и deploy.
+Устаревший адрес Sites из этого тега удалён. Затем выполни `npm run deploy`
+или отправь изменения в `main` для автоматической публикации.
 Проверь новый адрес в приватном окне браузера без входа в аккаунт хостинга.
 
 Документация:

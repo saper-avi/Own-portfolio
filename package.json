@@ -11,6 +11,7 @@
     "dev": "node tools/serve.mjs",
     "start": "node tools/serve.mjs",
     "build": "node tools/build.mjs",
+    "deploy": "npm run build && wrangler deploy",
     "preview": "node tools/serve.mjs dist"
   },
   "devDependencies": {
