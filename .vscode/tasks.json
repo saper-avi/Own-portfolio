@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Portfolio: local preview",
+      "type": "shell",
+      "command": "node",
+      "args": ["tools/serve.mjs"],
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Portfolio: build for hosting",
+      "type": "shell",
+      "command": "node",
+      "args": ["tools/build.mjs"],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "alikhan-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio: HTML, CSS and JavaScript",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "start": "node tools/serve.mjs",
+    "build": "node tools/build.mjs",
+    "preview": "node tools/serve.mjs dist"
+  },
+  "devDependencies": {
+    "wrangler": "4.152.0"
+  }
+}
